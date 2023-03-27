@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "57799700804",
+    "project_id": "note-app-807ac",
+    "storage_bucket": "note-app-807ac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:57799700804:android:94becf58158419d37da711",
+        "android_client_info": {
+          "package_name": "com.example.flutter_fortune"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "57799700804-th4mcp4bo6blhhr8280r8cu6r4pqop11.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwnOBN-XGMh6DL4-xQwEBb0txnzFBs_Ls"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "57799700804-th4mcp4bo6blhhr8280r8cu6r4pqop11.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
