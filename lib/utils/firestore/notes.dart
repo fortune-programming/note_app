@@ -17,8 +17,8 @@ class PostFirestore {
           .collection('my_notes');
       var result = await notes.add({
         'title': newNote.title,
-        'post_name': newNote.post_name,
-        'good_number': newNote.good_number,
+        'post_name': account.name,
+        'good_number': 0,
         'imageUrls': newNote.imageUrls,
         'field': newNote.field,
         'created_time': Timestamp.now()

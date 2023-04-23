@@ -1,0 +1,50 @@
+import 'dart:io';
+
+import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:image_picker/image_picker.dart';
+
+import '../../model/note.dart';
+
+class postNoteImgPage extends HookConsumerWidget  {
+  final Note note;
+
+  // コンストラクタ
+  const postNoteImgPage({Key? key, required this.note}) : super(key: key);
+
+  @override
+  State<postNoteImgPage> createState() => _postNoteImgPageState();
+}
+
+class _postNoteImgPageState extends State<postNoteImgPage> {
+  List<File>? images;
+  final picker = ImagePicker();
+
+  Future getImage() async {
+    final pickedFile = await picker.getImage(source: ImageSource.camera);
+
+    setState(() {
+      if (pickedFile != null) {
+          images!.add(File(pickedFile.path));
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('ノート撮影画面'),
+        centerTitle: true,
+        backgroundColor: Color.fromARGB(255, 226, 212, 186),
+      ),
+      body: ,
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add_a_photo),
+        onPressed: getImage,
+      ),
+    );
+  }
+}
