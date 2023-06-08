@@ -15,7 +15,6 @@ class Screen extends StatefulWidget {
   @override
   State<Screen> createState() => _ScreenState();
 }
-
 class _ScreenState extends State<Screen> {
   int selectedIndex =0;
   List<Widget>pageList = [Timeline(), mypage()];
@@ -27,11 +26,15 @@ class _ScreenState extends State<Screen> {
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
+            icon: Icon(
+              Icons.home_outlined,
+              color: Color.fromRGBO(226, 212, 186, 100),),
             label: ''
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.perm_identity_outlined),
+            icon: Icon(
+              Icons.perm_identity_outlined,
+              color: Color.fromRGBO(226, 212, 186, 100),),
             label: ''
           )
         ],
@@ -46,6 +49,7 @@ class _ScreenState extends State<Screen> {
           onPressed: () {
           },
           child: Icon(Icons.chat_bubble_outline),
+          backgroundColor: Color.fromRGBO(226, 212, 186, 100),
           ),
     );
   }
