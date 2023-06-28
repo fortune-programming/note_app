@@ -8,4 +8,10 @@
 プッシュテスト
 
 
+# 役割(辻本)
+mypage_edit.dart
+login.dart
+timeline.dart
 
+# 役割分担（のる）
+初期登録画面、マイページ画面
