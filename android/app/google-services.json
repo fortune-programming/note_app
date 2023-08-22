@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "57799700804",
-    "project_id": "note-app-807ac",
-    "storage_bucket": "note-app-807ac.appspot.com"
+    "project_number": "401790464544",
+    "project_id": "fortune-noteapp-59946",
+    "storage_bucket": "fortune-noteapp-59946.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:57799700804:android:94becf58158419d37da711",
+        "mobilesdk_app_id": "1:401790464544:android:7b94c185272c9e4430c245",
         "android_client_info": {
           "package_name": "com.example.flutter_fortune"
         }
       },
       "oauth_client": [
         {
-          "client_id": "57799700804-th4mcp4bo6blhhr8280r8cu6r4pqop11.apps.googleusercontent.com",
+          "client_id": "401790464544-drtasus0201pdk291tv1ae6i0lgc2u2t.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDwnOBN-XGMh6DL4-xQwEBb0txnzFBs_Ls"
+          "current_key": "AIzaSyBFNP3Yn0QQkQrcT7vz_TAhy6f035xTtqw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "57799700804-th4mcp4bo6blhhr8280r8cu6r4pqop11.apps.googleusercontent.com",
+              "client_id": "401790464544-drtasus0201pdk291tv1ae6i0lgc2u2t.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
