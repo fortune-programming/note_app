@@ -1,9 +1,12 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fortune/view/mypage/mypage.dart';
 import 'package:flutter_fortune/view/note/post_note_meta.dart';
 import 'package:flutter_fortune/view/screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
