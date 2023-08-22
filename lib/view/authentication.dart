@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:sns/view/screen.dart';
+import './screen.dart';
 
 class Authentication extends StatefulWidget {
   @override
@@ -17,12 +17,17 @@ class _AuthenticationState extends State<Authentication> {
           width: double.infinity,
           child: Column(
             children: [
-              SizedBox(height: 100,),
-              Text('届いた認証コードを入力してください', style: TextStyle(fontSize: 20, fontWeight:FontWeight.bold ),),
+              SizedBox(
+                height: 100,
+              ),
+              Text(
+                '届いた認証コードを入力してください',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical:20.0),
+                padding: const EdgeInsets.symmetric(vertical: 20.0),
                 child: Container(
-                  width:300,
+                  width: 300,
                   child: TextField(
                     controller: authenticationContoroller,
                     keyboardType: TextInputType.number,
@@ -35,11 +40,15 @@ class _AuthenticationState extends State<Authentication> {
                   ),
                 ),
               ),
-              SizedBox(height: 100,),
-              ElevatedButton(onPressed: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(builder:(context) => Screen()));
-              }, 
-              child: Text('認証する'))
+              SizedBox(
+                height: 100,
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => Screen()));
+                  },
+                  child: Text('認証する'))
             ],
           ),
         ),
