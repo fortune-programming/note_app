@@ -77,6 +77,8 @@ class _SignUpPageState extends State<SignUpPage> {
                 _isLoading
                     ? CircularProgressIndicator()
                     : ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: Color.fromRGBO(226, 212, 186, 100)),
                         onPressed: () {
                           backgroundColor:
                           Color(0xFFE2D4BA);
