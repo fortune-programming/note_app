@@ -1,4 +1,7 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_fortune/view/initial_register/initial_register.dart';
+import 'package:flutter_fortune/view/mypage/mypage.dart';
 
 class SignUpPage extends StatefulWidget {
   @override
@@ -73,21 +76,50 @@ class _SignUpPageState extends State<SignUpPage> {
                     });
                   },
                 ),
+                SizedBox(height: 15,),
+                RichText(
+                  text: TextSpan(
+                    style: TextStyle(color: Colors.black),
+                    children: [
+                      TextSpan(text: 'パスワードを忘れた方は'),
+                      TextSpan(text: 'こちら',
+                      style: TextStyle(color: Colors.blue),
+                      recognizer: TapGestureRecognizer()..onTap = (){
+                        Navigator.push(context,
+                         MaterialPageRoute(builder: (context) =>InitialRegister())
+                         );
+                      })
+                    ]
+                  )),
+                  RichText(
+                  text: TextSpan(
+                    style: TextStyle(color: Colors.black),
+                    children: [
+                      TextSpan(text: 'アカウントをお持ちでない方は'),
+                      TextSpan(text: 'こちら',
+                      style: TextStyle(color: Colors.blue),
+                      recognizer: TapGestureRecognizer()..onTap = (){
+                        Navigator.push(context,
+                         MaterialPageRoute(builder: (context) =>InitialRegister())
+                         );
+                      })
+                    ]
+                  )),
                 SizedBox(height: 32.0),
                 _isLoading
                     ? CircularProgressIndicator()
                     : ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          primary: Color.fromRGBO(226, 212, 186, 100)),
+                           primary: Color(0xFFE2D4BA),
+                           onPrimary: Colors.white),
                         onPressed: () {
-                          backgroundColor:
-                          Color(0xFFE2D4BA);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) =>mypage())
+                          );
                         },
                         child: Text(
                           'ログイン',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
                         ),
                       ),
                 SizedBox(height: 16.0),
