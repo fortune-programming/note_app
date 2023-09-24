@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_fortune/view/Resetting/Resetting.dart';
 
 import '../Authentication/Authentication.dart';
 
@@ -40,9 +41,9 @@ class _InitialRegisterState extends State<InitialRegister> {
               SizedBox(height: 70,),
                ElevatedButton(onPressed: () {
                 Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) => Authentication()));
+                        MaterialPageRoute(builder: (context) => ResettingPage()));
                }, 
-               child: Text('認証コードを送信')),
+               child: Text('URLを送信')),
             ],
           ),
         ),
