@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_fortune/view/Resetting/Resetting.dart';
 import '../screen.dart';
 
 class Authentication extends StatefulWidget {
@@ -46,7 +47,7 @@ class _AuthenticationState extends State<Authentication> {
               ElevatedButton(
                   onPressed: () {
                     Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) => Screen()));
+                        MaterialPageRoute(builder: (context) => ResettingPage()));
                   },
                   child: Text('認証する'))
             ],
