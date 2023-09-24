@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../Authentication/Authentication.dart';
+
 class InitialRegister extends StatefulWidget {
 
   @override
@@ -36,7 +38,10 @@ class _InitialRegisterState extends State<InitialRegister> {
                 ),
               ),
               SizedBox(height: 70,),
-               ElevatedButton(onPressed: () {}, 
+               ElevatedButton(onPressed: () {
+                Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => Authentication()));
+               }, 
                child: Text('認証コードを送信')),
             ],
           ),
