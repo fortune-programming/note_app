@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_fortune/view/initial_register/initial_register.dart';
 import 'package:flutter_fortune/view/mypage/mypage.dart';
 
-class LogInPage extends StatefulWidget {
+class LogIn extends StatefulWidget {
   @override
-  _LogInPageState createState() => _LogInPageState();
+  _LogInState createState() => _LogInState();
 }
 
-class _LogInPageState extends State<LogInPage> {
+class _LogInState extends State<LogIn> {
   final _formKey = GlobalKey<FormState>();
 
   String _email = '';
