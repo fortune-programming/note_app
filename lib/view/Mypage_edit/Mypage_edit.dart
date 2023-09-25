@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 
-class Mypage_editPage extends StatefulWidget {
-  const Mypage_editPage({Key? key}) : super(key: key);
+class Mypage_edit extends StatefulWidget {
+  const Mypage_edit({Key? key}) : super(key: key);
 
   @override
-  _Mypage_editPageState createState() => _Mypage_editPageState();
+  _Mypage_editState createState() => _Mypage_editState();
 }
 
-class _Mypage_editPageState extends State<Mypage_editPage> {
+class _Mypage_editState extends State<Mypage_edit> {
   String _name = 'User name';
   String _intro = 'Introduction text';
   String _belonging = 'Belonging text';
