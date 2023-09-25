@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_fortune/view/initial_register/initial_register.dart';
 import 'package:flutter_fortune/view/mypage/mypage.dart';
 
-class SignUpPage extends StatefulWidget {
+class LogInPage extends StatefulWidget {
   @override
-  _SignUpPageState createState() => _SignUpPageState();
+  _LogInPageState createState() => _LogInPageState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
+class _LogInPageState extends State<LogInPage> {
   final _formKey = GlobalKey<FormState>();
 
   String _email = '';
@@ -76,47 +76,53 @@ class _SignUpPageState extends State<SignUpPage> {
                     });
                   },
                 ),
-                SizedBox(height: 15,),
+                SizedBox(
+                  height: 15,
+                ),
                 RichText(
-                  text: TextSpan(
-                    style: TextStyle(color: Colors.black),
-                    children: [
+                    text: TextSpan(
+                        style: TextStyle(color: Colors.black),
+                        children: [
                       TextSpan(text: 'パスワードを忘れた方は'),
-                      TextSpan(text: 'こちら',
-                      style: TextStyle(color: Colors.blue),
-                      recognizer: TapGestureRecognizer()..onTap = (){
-                        Navigator.push(context,
-                         MaterialPageRoute(builder: (context) =>InitialRegister())
-                         );
-                      })
-                    ]
-                  )),
-                  RichText(
-                  text: TextSpan(
-                    style: TextStyle(color: Colors.black),
-                    children: [
+                      TextSpan(
+                          text: 'こちら',
+                          style: TextStyle(color: Colors.blue),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => InitialRegister()));
+                            })
+                    ])),
+                RichText(
+                    text: TextSpan(
+                        style: TextStyle(color: Colors.black),
+                        children: [
                       TextSpan(text: 'アカウントをお持ちでない方は'),
-                      TextSpan(text: 'こちら',
-                      style: TextStyle(color: Colors.blue),
-                      recognizer: TapGestureRecognizer()..onTap = (){
-                        Navigator.push(context,
-                         MaterialPageRoute(builder: (context) =>InitialRegister())
-                         );
-                      })
-                    ]
-                  )),
+                      TextSpan(
+                          text: 'こちら',
+                          style: TextStyle(color: Colors.blue),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => InitialRegister()));
+                            })
+                    ])),
                 SizedBox(height: 32.0),
                 _isLoading
                     ? CircularProgressIndicator()
                     : ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                           primary: Color(0xFFE2D4BA),
-                           onPrimary: Colors.white),
+                            primary: Color(0xFFE2D4BA),
+                            onPrimary: Colors.white),
                         onPressed: () {
                           Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) =>mypage())
-                          );
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => mypage()));
                         },
                         child: Text(
                           'ログイン',
