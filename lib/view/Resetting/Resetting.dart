@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:helloworld/view/Login/Login.dart';
+import 'package:flutter_fortune/view/Login/Login.dart';
 
 
 class ResettingPage extends StatefulWidget {
@@ -83,7 +83,7 @@ class _ResettingPageState extends State<ResettingPage> {
                 }
                 Navigator.pushReplacement(
                   context, 
-                  MaterialPageRoute(builder: (context) =>SignUpPage())
+                  MaterialPageRoute(builder: (context) =>LogIn())
                 );
 
               }, 
