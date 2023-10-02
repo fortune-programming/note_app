@@ -113,7 +113,7 @@ class _New_registerState extends State<New_register> {
                       Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => SignUpPage()));
+                              builder: (context) => LogIn()));
                     } else {
                       showValidationPopup1();
                     }
