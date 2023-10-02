@@ -18,7 +18,7 @@ class Screen extends StatefulWidget {
 
 class _ScreenState extends State<Screen> {
   int selectedIndex = 0;
-  List<Widget> pageList = [Timeline(), mypage()];
+  List<Widget> pageList = [Timeline(), Mypage()];
 
   @override
   Widget build(BuildContext context) {
