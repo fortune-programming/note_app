@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_fortune/model/account.dart';
+import 'package:flutter_fortune/view/Mypage_edit/Mypage_edit.dart';
 
 class Mypage extends StatefulWidget {
   const Mypage({super.key});
@@ -15,7 +16,7 @@ class _MypageState extends State<Mypage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(226, 212, 186, 100),
+        backgroundColor: Color.fromRGBO(222, 168, 69, 0.612),
         elevation: 0,
         iconTheme: IconThemeData(color: Colors.white),
         title: Text(
@@ -25,13 +26,41 @@ class _MypageState extends State<Mypage> {
         centerTitle: true,
       ),
       body: SafeArea(
-          child: Column(
-        children: [
-          Container(
-            height: 200,
-          )
-        ],
-      )),
+        child: Column(
+          children: [
+            Container(
+              height: 200,
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                   children:[
+                    Row(
+                      children:[
+                      SizedBox(width: 10),
+                      Column(
+                       crossAxisAlignment: CrossAxisAlignment.start,
+                       children: [
+                        Text('アカウント名', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                        Text('ユーザーの学年　ユーザーの学部', style: TextStyle(fontSize: 15),),
+                       ],
+                      )
+                     ]
+                    ),
+                    OutlinedButton(onPressed: (){
+                      Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => Mypage_edit()));
+                    }, 
+                    child: Text('編集')
+                    )
+                   ],
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
