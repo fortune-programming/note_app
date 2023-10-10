@@ -41,7 +41,7 @@ class _InitialRegisterState extends State<InitialRegister> {
               SizedBox(height: 70,),
                ElevatedButton(onPressed: () {
                 Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) => ResettingPage()));
+                        MaterialPageRoute(builder: (context) => Resetting()));
                }, 
                child: Text('URLを送信')),
             ],

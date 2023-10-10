@@ -47,7 +47,7 @@ class _AuthenticationState extends State<Authentication> {
               ElevatedButton(
                   onPressed: () {
                     Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) => ResettingPage()));
+                        MaterialPageRoute(builder: (context) => Resetting()));
                   },
                   child: Text('認証する'))
             ],
