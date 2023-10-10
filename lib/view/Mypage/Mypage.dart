@@ -41,7 +41,7 @@ class _MypageState extends State<Mypage> {
                       Column(
                        crossAxisAlignment: CrossAxisAlignment.start,
                        children: [
-                        Text('ユーザー名', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                        Text('アカウント名', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
                         Text('ユーザーの学年　ユーザーの学部', style: TextStyle(fontSize: 15),),
                        ],
                       )
