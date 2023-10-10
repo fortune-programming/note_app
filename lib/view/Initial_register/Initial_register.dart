@@ -38,7 +38,7 @@ class _InitialRegisterState extends State<InitialRegister> {
                   ),
                 ),
               ),
-              SizedBox(height: 70,),
+              SizedBox(height: 69,),
                ElevatedButton(onPressed: () {
                 Navigator.pushReplacement(context,
                         MaterialPageRoute(builder: (context) => Resetting()));
