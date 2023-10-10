@@ -151,7 +151,7 @@ class _Mypage_editState extends State<Mypage_edit> {
               ),
              SizedBox(height: 16.0),
               Text(
-                '所属学部',
+                '学年',
                 style: TextStyle(
                   fontSize: 16.0,
                   fontWeight: FontWeight.bold,
