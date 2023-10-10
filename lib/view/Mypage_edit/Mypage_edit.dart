@@ -17,6 +17,7 @@ class _Mypage_editState extends State<Mypage_edit> {
   String _belonging = 'Belonging text';
   String? _selectedFaculty;
   String? _serlectedPicture;
+  String? _selectedGread;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +40,7 @@ class _Mypage_editState extends State<Mypage_edit> {
           children: <Widget>[
             SizedBox(height: 16.0),
             Text(
-              'ユーザー名',
+              'アカウント名',
               style: TextStyle(
                 fontSize: 16.0,
                 fontWeight: FontWeight.bold,
@@ -57,52 +58,52 @@ class _Mypage_editState extends State<Mypage_edit> {
                 });
               },
             ),
-            SizedBox(height: 16.0),
-            Text(
-              'アカウントのアイコン',
-              style: TextStyle(
-                fontSize: 16.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 8.0),
-            Container(
-              width: 80.0,
-              height: 80.0,
-              decoration: BoxDecoration(
-                color: Colors.grey[200],
-                borderRadius: BorderRadius.circular(40.0),
-              ),
-              child: Icon(Icons.person, size: 48.0),
-            ),
-            SizedBox(height: 8.0),
-            TextButton(
-              onPressed: () {
+            //SizedBox(height: 16.0),
+            //Text(
+              //'アカウントのアイコン',
+              //style: TextStyle(
+                //fontSize: 16.0,
+                //fontWeight: FontWeight.bold,
+              //),
+            //),
+            //SizedBox(height: 8.0),
+            //Container(
+              //width: 80.0,
+              //height: 80.0,
+              //decoration: BoxDecoration(
+                //color: Colors.grey[200],
+                //borderRadius: BorderRadius.circular(40.0),
+              //),
+              //child: Icon(Icons.person, size: 48.0),
+            //),
+            //SizedBox(height: 8.0),
+            //TextButton(
+              //onPressed: () {
                 // Add code to change the account icon
-              },
-              child: Text('画像を変更'),
-            ),
-            SizedBox(height: 16.0),
-            Text(
-              '自己紹介',
-              style: TextStyle(
-                fontSize: 16.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 8.0),
-            TextField(
-              maxLines: 3,
-              decoration: InputDecoration(
-                hintText: '自己紹介をどうぞ',
-                border: OutlineInputBorder(),
-              ),
-              onChanged: (value) {
-                setState(() {
-                  _intro = value;
-                });
-              },
-            ),
+              //},
+              //child: Text('画像を変更'),
+            //),
+            //SizedBox(height: 16.0),
+            //Text(
+              //'自己紹介',
+              //style: TextStyle(
+                //fontSize: 16.0,
+                //fontWeight: FontWeight.bold,
+              //),
+            //),
+            //SizedBox(height: 8.0),
+            //TextField(
+              //maxLines: 3,
+              //decoration: InputDecoration(
+                //hintText: '自己紹介をどうぞ',
+                //border: OutlineInputBorder(),
+              //),
+              //onChanged: (value) {
+                //setState(() {
+                  //_intro = value;
+                //});
+              //},
+            //),
             SizedBox(height: 16.0),
             Text(
               '所属学部',
