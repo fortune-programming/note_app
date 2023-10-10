@@ -23,7 +23,7 @@ class _AuthenticationState extends State<Authentication> {
               ),
               Text(
                 '届いた認証コードを入力してください',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 20.0),
