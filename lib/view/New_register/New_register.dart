@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../Login/Login.dart';
 
 class New_register extends StatefulWidget {
@@ -29,7 +28,8 @@ class _New_registerState extends State<New_register> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text("入力が無効です"),
-          content: Text("英語大文字、英語小文字、数字をそれぞれ少なくとも1文字以上使用している合計8文字以上の文字列が必要です。"),
+          content:
+              Text("英語大文字、英語小文字、数字をそれぞれ少なくとも1文字以上使用している合計8文字以上のパスワードが必要です。"),
           actions: <Widget>[
             ElevatedButton(
               onPressed: () {
@@ -49,7 +49,7 @@ class _New_registerState extends State<New_register> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text("入力が無効です"),
-          content: Text("入力された内容が一致しているか確認してください"),
+          content: Text("入力されたパスワードが一致しているか確認してください"),
           actions: <Widget>[
             ElevatedButton(
               onPressed: () {
@@ -83,6 +83,25 @@ class _New_registerState extends State<New_register> {
               child: Container(
                 width: 300,
                 child: TextField(
+                  controller: emailController,
+                  decoration: InputDecoration(
+                    hintText: 'メールアドレス',
+                    suffixIcon: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Text(
+                        '@m.mie-u.ac.jp',
+                        style: TextStyle(color: Colors.black),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20.0),
+              child: Container(
+                width: 300,
+                child: TextField(
                   onChanged: (text) {
                     setState(() {
                       userInput = text;
@@ -110,10 +129,8 @@ class _New_registerState extends State<New_register> {
                 onPressed: () {
                   if (isInputValid) {
                     if (userInput == userInput1) {
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => LogIn()));
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) => LogIn()));
                     } else {
                       showValidationPopup1();
                     }
