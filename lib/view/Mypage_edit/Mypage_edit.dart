@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_fortune/view/Mypage/Mypage.dart';
 import 'package:image_picker/image_picker.dart';
 
 class Mypage_edit extends StatefulWidget {
@@ -147,6 +148,79 @@ class _Mypage_editState extends State<Mypage_edit> {
                 });
               },
             ),
+           SizedBox(height: 16.0),
+            Text(
+              '所属学部',
+              style: TextStyle(
+                fontSize: 16.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 8.0),
+            DropdownButtonFormField<String>(
+              decoration: InputDecoration(
+                hintText: '学年',
+                border: OutlineInputBorder(),
+              ),
+              value: _selectedGread,
+              items: const [
+                DropdownMenuItem(
+                  value: 'Gread 1',
+                  child: Text('1年'),
+                ),
+                DropdownMenuItem(
+                  value: 'Gread 2',
+                  child: Text('2年'),
+                ),
+                DropdownMenuItem(
+                  value: 'Gread 3',
+                  child: Text('3年'),
+                ),
+                DropdownMenuItem(
+                  value: 'Gread 4',
+                  child: Text('4年'),
+                ),
+                DropdownMenuItem(
+                  value: 'Master 1',
+                  child: Text('修士1年'),
+                ),
+                DropdownMenuItem(
+                  value: 'Master 2',
+                  child: Text('修士2年'),
+                ),
+                DropdownMenuItem(
+                  value: 'Doctor 1',
+                  child: Text('博士1年'),
+                ),
+                DropdownMenuItem(
+                  value: 'Doctor 2',
+                  child: Text('博士2年'),
+                ),
+                DropdownMenuItem(
+                  value: 'Doctor 3',
+                  child: Text('博士3年'),
+                ),
+                DropdownMenuItem(
+                  value: 'Doctor 4',
+                  child: Text('博士4年'),
+                ),
+              ],
+              onChanged: (value) {
+                setState(() {
+                  _selectedGread = value;
+                });
+              },
+            ),
+            const SizedBox(height: 8.0,),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: OutlinedButton(onPressed: (){
+                        Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) => Mypage()));
+                      }, 
+                      child: Text('変更を保存'),
+                      ),
+            )
           ],
         ),
       ),
