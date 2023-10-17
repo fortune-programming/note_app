@@ -123,23 +123,23 @@ class _Mypage_editState extends State<Mypage_edit> {
                 value: _selectedFaculty,
                 items: const [
                   DropdownMenuItem(
-                    value: 'Faculty of humanities Law and Economics',
+                    value: 'Faculty of humanities',
                     child: Text('人文学部'),
                   ),
                   DropdownMenuItem(
-                    value: 'Faculty of humanities, Culture',
+                    value: 'Faculty of education',
                     child: Text('教育学部'),
                   ),
                   DropdownMenuItem(
-                    value: 'Faculty of humanities Law and Economics',
-                    child: Text('生物学部'),
+                    value: 'Faculty of bioresources',
+                    child: Text('生物資源学部'),
                   ),
                   DropdownMenuItem(
-                    value: 'Faculty of humanities Law and Economics',
+                    value: 'Faculty of engineering',
                     child: Text('工学部'),
                   ),
                   DropdownMenuItem(
-                    value: 'Faculty of humanities Law and Economics',
+                    value: 'Faculty of medical',
                     child: Text('医学部'),
                   ),
                 ],
