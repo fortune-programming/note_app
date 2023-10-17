@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../Login/Login.dart';
+import 'Authentication.dart';
 
 class New_register extends StatefulWidget {
   @override
@@ -126,11 +127,16 @@ class _New_registerState extends State<New_register> {
             ),
             SizedBox(height: 70),
             ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
                   if (isInputValid) {
                     if (userInput == userInput1) {
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) => LogIn()));
+                      var result = Authentication.signUp(
+                          email: emailController.text,
+                          pass: passController.text);
+                      if (result == true) {
+                        Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder: (context) => LogIn()));
+                      }
                     } else {
                       showValidationPopup1();
                     }
@@ -139,7 +145,7 @@ class _New_registerState extends State<New_register> {
                     showValidationPopup();
                   }
                 },
-                child: Text('完了'))
+                child: Text('認証メールを送信'))
           ],
         ),
       ),
