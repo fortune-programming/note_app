@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_fortune/view/initial_register/initial_register.dart';
+import 'package:flutter_fortune/view/New_register/New_register.dart';
+import 'package:flutter_fortune/view/Resetting/Resetting.dart';
 import 'package:flutter_fortune/view/mypage/mypage.dart';
 
 class LogIn extends StatefulWidget {
@@ -92,7 +93,7 @@ class _LogInState extends State<LogIn> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => InitialRegister()));
+                                      builder: (context) => Resetting()));
                             })
                     ])),
                 RichText(
@@ -108,7 +109,7 @@ class _LogInState extends State<LogIn> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => InitialRegister()));
+                                      builder: (context) => New_register()));
                             })
                     ])),
                 SizedBox(height: 32.0),
