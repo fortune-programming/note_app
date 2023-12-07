@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_fortune/view/Login/Login.dart';
 
 class Resetting_check extends StatefulWidget {
   const Resetting_check({super.key});
@@ -32,13 +33,15 @@ class _Resetting_checkState extends State<Resetting_check> {
           ),
           TextButton(
             onPressed: () {
-
+               Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => LogIn())
+                  );
             },
             child: Text(isChecked ? 'ログインページに戻る':''),
           )
-          ]
+        ]
       ),
-    ),
+     ),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fortune/view/Login/Login.dart';
+import 'package:flutter_fortune/view/Resetting_check/Resetting_check.dart';
 
 
 class Resetting extends StatefulWidget {
@@ -41,11 +42,9 @@ class _ResettingState extends State<Resetting> {
             SizedBox(height: 70),
             ElevatedButton(
               onPressed: () {
-                //Navigator.pushReplacement(
-                  //context, 
-                  //MaterialPageRoute(builder: (context) => ())
-                //);
-
+                Navigator.pushReplacement(context, 
+                  MaterialPageRoute(builder: (context) => Resetting_check())
+                );
               }, 
             child: Text('メールを送信'))
           ],
