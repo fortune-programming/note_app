@@ -68,6 +68,7 @@ class _New_registerState extends State<New_register> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Color(0xFFE2D4BA),
         title: Center(
           child: Text(
