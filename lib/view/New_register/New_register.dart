@@ -69,93 +69,94 @@ class _New_registerState extends State<New_register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-      alignment: Alignment.center,
-      child: SafeArea(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 58,
-            ),
-            Text(
-              '新規登録ページ',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20.0),
-              child: Container(
-                width: 300,
-                child: TextField(
-                  controller: emailController,
-                  decoration: InputDecoration(
-                    hintText: 'メールアドレス',
-                    suffixIcon: Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Text(
-                        '@m.mie-u.ac.jp',
-                        style: TextStyle(color: Colors.black),
+      appBar: AppBar(
+        backgroundColor: Color(0xFFE2D4BA),
+        title: Center(
+          child: Text('新規登録ページ',style: TextStyle(color: Colors.white),),
+        ),
+      ),
+        body: SingleChildScrollView(
+          child: Container(
+              alignment: Alignment.center,
+              child: SafeArea(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20.0),
+                child: Container(
+                  width: 300,
+                  child: TextField(
+                    controller: emailController,
+                    decoration: InputDecoration(
+                      hintText: 'メールアドレス',
+                      suffixIcon: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Text(
+                          '@m.mie-u.ac.jp',
+                          style: TextStyle(color: Colors.black),
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20.0),
-              child: Container(
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20.0),
+                child: Container(
+                  width: 300,
+                  child: TextField(
+                    onChanged: (text) {
+                      setState(() {
+                        userInput = text;
+                        isInputValid = checkInput(userInput);
+                      });
+                    },
+                    controller: passController,
+                    decoration: InputDecoration(hintText: 'パスワード'),
+                  ),
+                ),
+              ),
+              Container(
                 width: 300,
                 child: TextField(
                   onChanged: (text) {
                     setState(() {
-                      userInput = text;
-                      isInputValid = checkInput(userInput);
+                      userInput1 = text;
                     });
                   },
-                  controller: passController,
-                  decoration: InputDecoration(hintText: 'パスワード'),
+                  decoration: InputDecoration(hintText: 'パスワード（確認用）'),
                 ),
               ),
-            ),
-            Container(
-              width: 300,
-              child: TextField(
-                onChanged: (text) {
-                  setState(() {
-                    userInput1 = text;
-                  });
-                },
-                decoration: InputDecoration(hintText: 'パスワード（確認用）'),
-              ),
-            ),
-            SizedBox(height: 70),
-            ElevatedButton(
-                onPressed: () async {
-                  if (isInputValid) {
-                    if (userInput == userInput1) {
-                      var result = await Authentication.signUp(
-                          email: emailController.text,
-                          pass: passController.text);
-                      if (result is UserCredential) {
-                        result.user!.sendEmailVerification();
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => New_register_check(
-                                    email: emailController.text,
-                                    pass: passController.text)));
+              SizedBox(height: 70),
+              ElevatedButton(
+                  onPressed: () async {
+                    if (isInputValid) {
+                      if (userInput == userInput1) {
+                        var result = await Authentication.signUp(
+                            email: emailController.text,
+                            pass: passController.text);
+                        if (result is UserCredential) {
+                          result.user!.sendEmailVerification();
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => New_register_check(
+                                      email: emailController.text,
+                                      pass: passController.text)));
+                        }
+                      } else {
+                        showValidationPopup1();
                       }
                     } else {
-                      showValidationPopup1();
+                      print("文字列は条件を満たしていません");
+                      showValidationPopup();
                     }
-                  } else {
-                    print("文字列は条件を満たしていません");
-                    showValidationPopup();
-                  }
-                },
-                child: Text('認証メールを送信'))
-          ],
-        ),
-      ),
-    ));
+                  },
+                  child: Text('認証メールを送信'))
+            ],
+          ),
+              ),
+            ),
+        ));
   }
 }
