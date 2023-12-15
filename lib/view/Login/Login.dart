@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_fortune/view/New_register/New_register.dart';
 import 'package:flutter_fortune/view/Resetting/Resetting.dart';
 import 'package:flutter_fortune/view/mypage/mypage.dart';
+import 'package:flutter_fortune/view/screen.dart';
 
 class LogIn extends StatefulWidget {
   @override
@@ -127,7 +128,7 @@ class _LogInState extends State<LogIn> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Mypage()));
+                                    builder: (context) => Screen()));
                           },
                           child: Text(
                             'ログイン',

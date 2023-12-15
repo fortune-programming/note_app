@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_fortune/view/Mypage/Mypage.dart';
+import 'package:flutter_fortune/view/screen.dart';
 import 'package:image_picker/image_picker.dart';
 
 class Mypage_edit extends StatefulWidget {
@@ -218,7 +219,7 @@ class _Mypage_editState extends State<Mypage_edit> {
                 alignment: Alignment.bottomCenter,
                 child: OutlinedButton(onPressed: (){
                           Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) => Mypage()));
+                            MaterialPageRoute(builder: (context) => Screen()));
                         }, 
                         child: Text('変更を保存'),
                         ),
