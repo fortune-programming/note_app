@@ -14,6 +14,10 @@ class _Resetting_checkState extends State<Resetting_check> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        backgroundColor: Color(0xFFE2D4BA),
+      ),
       body: SafeArea(
         child: Column(
           children: [
