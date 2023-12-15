@@ -1,6 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import '../Login/Login.dart';
 import 'Authentication.dart';
+import 'New_register_check.dart';
 
 class New_register extends StatefulWidget {
   @override
@@ -44,6 +45,7 @@ class _New_registerState extends State<New_register> {
     );
   }
 
+  // ポップアップを表示する関数
   void showValidationPopup1() {
     showDialog(
       context: context,
@@ -67,95 +69,93 @@ class _New_registerState extends State<New_register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Color(0xFFE2D4BA),
-        title: Center(
-          child: Text(
-            '新規登録ページ',
-            style: TextStyle(
-              color: Colors.white,
+        body: Container(
+      alignment: Alignment.center,
+      child: SafeArea(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 58,
             ),
-          ),
-        ),
-      ),
-        body: SingleChildScrollView(
-          child: Container(
-              alignment: Alignment.center,
-              child: SafeArea(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20.0),
-                child: Container(
-                  width: 300,
-                  child: TextField(
-                    controller: emailController,
-                    decoration: InputDecoration(
-                      hintText: 'メールアドレス',
-                      suffixIcon: Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: Text(
-                          '@m.mie-u.ac.jp',
-                          style: TextStyle(color: Colors.black),
-                        ),
+            Text(
+              '新規登録ページ',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20.0),
+              child: Container(
+                width: 300,
+                child: TextField(
+                  controller: emailController,
+                  decoration: InputDecoration(
+                    hintText: 'メールアドレス',
+                    suffixIcon: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Text(
+                        '@m.mie-u.ac.jp',
+                        style: TextStyle(color: Colors.black),
                       ),
                     ),
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20.0),
-                child: Container(
-                  width: 300,
-                  child: TextField(
-                    onChanged: (text) {
-                      setState(() {
-                        userInput = text;
-                        isInputValid = checkInput(userInput);
-                      });
-                    },
-                    controller: passController,
-                    decoration: InputDecoration(hintText: 'パスワード'),
-                  ),
-                ),
-              ),
-              Container(
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20.0),
+              child: Container(
                 width: 300,
                 child: TextField(
                   onChanged: (text) {
                     setState(() {
-                      userInput1 = text;
+                      userInput = text;
+                      isInputValid = checkInput(userInput);
                     });
                   },
-                  decoration: InputDecoration(hintText: 'パスワード（確認用）'),
+                  controller: passController,
+                  decoration: InputDecoration(hintText: 'パスワード'),
                 ),
               ),
-              SizedBox(height: 70),
-              OutlinedButton(
-                  onPressed: () async {
-                    if (isInputValid) {
-                      if (userInput == userInput1) {
-                        var result = Authentication.signUp(
-                            email: emailController.text,
-                            pass: passController.text);
-                        if (result == true) {
-                          Navigator.pushReplacement(context,
-                              MaterialPageRoute(builder: (context) => LogIn()));
-                        }
-                      } else {
-                        showValidationPopup1();
-                      }
-                    } else {
-                      print("文字列は条件を満たしていません");
-                      showValidationPopup();
-                    }
-                  },
-                  child: Text('認証メールを送信'))
-            ],
-          ),
+            ),
+            Container(
+              width: 300,
+              child: TextField(
+                onChanged: (text) {
+                  setState(() {
+                    userInput1 = text;
+                  });
+                },
+                decoration: InputDecoration(hintText: 'パスワード（確認用）'),
               ),
             ),
-        ));
+            SizedBox(height: 70),
+            ElevatedButton(
+                onPressed: () async {
+                  if (isInputValid) {
+                    if (userInput == userInput1) {
+                      var result = await Authentication.signUp(
+                          email: emailController.text,
+                          pass: passController.text);
+                      if (result is UserCredential) {
+                        result.user!.sendEmailVerification();
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => New_register_check(
+                                    email: emailController.text,
+                                    pass: passController.text)));
+                      }
+                    } else {
+                      showValidationPopup1();
+                    }
+                  } else {
+                    print("文字列は条件を満たしていません");
+                    showValidationPopup();
+                  }
+                },
+                child: Text('認証メールを送信'))
+          ],
+        ),
+      ),
+    ));
   }
 }

@@ -22,7 +22,6 @@ class _LogInState extends State<LogIn> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
         backgroundColor: Color(0xFFE2D4BA),
         title: Center(
           child: Text(
@@ -39,7 +38,7 @@ class _LogInState extends State<LogIn> {
           child: Form(
             key: _formKey,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TextFormField(
                   keyboardType: TextInputType.emailAddress,
@@ -116,7 +115,11 @@ class _LogInState extends State<LogIn> {
                 SizedBox(height: 32.0),
                 _isLoading
                     ? CircularProgressIndicator()
-                    : OutlinedButton(onPressed: () {
+                    : ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            primary: Color(0xFFE2D4BA),
+                            onPrimary: Colors.white),
+                        onPressed: () {
                           Navigator.push(
                               context,
                               MaterialPageRoute(

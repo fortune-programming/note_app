@@ -16,8 +16,7 @@ class _MypageState extends State<Mypage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Color(0xFFE2D4BA),
+        backgroundColor: Color.fromRGBO(222, 168, 69, 0.612),
         elevation: 0,
         iconTheme: IconThemeData(color: Colors.white),
         title: Text(

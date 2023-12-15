@@ -24,7 +24,6 @@ class _Mypage_editState extends State<Mypage_edit> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
         backgroundColor: Color(0xFFE2D4BA),
         title: Center(
           child: Text(
