@@ -18,7 +18,7 @@ class Screen extends StatefulWidget {
 
 class _ScreenState extends State<Screen> {
   int selectedIndex = 0;
-  List<Widget> pageList = [Timeline(), Mypage()];
+  List<Widget> pageList = [Mypage(), Timeline()];
 
   @override
   Widget build(BuildContext context) {
@@ -28,13 +28,13 @@ class _ScreenState extends State<Screen> {
         items: [
           BottomNavigationBarItem(
               icon: Icon(
-                Icons.home_outlined,
+                Icons.perm_identity_outlined,
                 color: Color.fromRGBO(226, 212, 186, 100),
               ),
               label: ''),
           BottomNavigationBarItem(
               icon: Icon(
-                Icons.perm_identity_outlined,
+                Icons.home_outlined,
                 color: Color.fromRGBO(226, 212, 186, 100),
               ),
               label: '')
