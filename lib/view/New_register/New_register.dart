@@ -1,6 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import '../Login/Login.dart';
 import 'Authentication.dart';
+import 'New_register_check.dart';
 
 class New_register extends StatefulWidget {
   @override
@@ -130,12 +131,17 @@ class _New_registerState extends State<New_register> {
                 onPressed: () async {
                   if (isInputValid) {
                     if (userInput == userInput1) {
-                      var result = Authentication.signUp(
+                      var result = await Authentication.signUp(
                           email: emailController.text,
                           pass: passController.text);
-                      if (result == true) {
-                        Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) => LogIn()));
+                      if (result is UserCredential) {
+                        result.user!.sendEmailVerification();
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => New_register_check(
+                                    email: emailController.text,
+                                    pass: passController.text)));
                       }
                     } else {
                       showValidationPopup1();
