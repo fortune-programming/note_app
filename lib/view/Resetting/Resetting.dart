@@ -52,7 +52,7 @@ class _ResettingState extends State<Resetting> {
                     suffixIcon: Padding(
                       padding: const EdgeInsets.all(12.0),
                       child: Text(
-                        '@m.mie-u.ac.jp',
+                        '@m.mie-u.ac.j',
                         style: TextStyle(color: Colors.black),
                         ),
                         ),
