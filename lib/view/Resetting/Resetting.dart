@@ -17,25 +17,46 @@ class _ResettingState extends State<Resetting> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        backgroundColor: Color(0xFFE2D4BA),
+        title: Center(
+          child: Text(
+            '再設定ページ',
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ),
         body: SafeArea(
       child: Container(
         width: double.infinity,
         child: Column(
           children: [
-            SizedBox(
-              height: 50,
-            ),
-            Text(
-              '再設定ページ',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
+            //SizedBox(
+              //height: 50,
+            //),
+            //Text(
+              //'再設定ページ',
+              //style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            //),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20.0),
               child: Container(
                 width: 300,
                 child: TextField(
                   controller: emailController,
-                  decoration: InputDecoration(hintText: 'メールアドレス'),
+                  decoration: InputDecoration(
+                    hintText: 'メールアドレス',
+                    suffixIcon: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Text(
+                        '@m.mie-u.ac.jp',
+                        style: TextStyle(color: Colors.black),
+                        ),
+                        ),
+                         ),
                 ),
               ),
             ),
