@@ -45,6 +45,7 @@ class _New_registerState extends State<New_register> {
     );
   }
 
+  // ポップアップを表示する関数
   void showValidationPopup1() {
     showDialog(
       context: context,
