@@ -38,15 +38,26 @@ class _New_register_checkState extends State<New_register_check> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Colors.transparent,
-        title: Text(
-          'メールを送信しました',
-          style: TextStyle(color: Color.fromRGBO(0, 0, 0, 1), fontSize: 30),
-        ),
+        automaticallyImplyLeading: false,
+        backgroundColor: Color(0xFFE2D4BA),
       ),
-      body: Center(
+      body: SafeArea(
         child: Column(
+          children: [
+            SizedBox(
+              height: 50,
+            ),
+            Text(
+              'メールを送信しました',
+              style: TextStyle(color: Color.fromRGBO(0, 0, 0, 1), fontSize: 30),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20.0),
+              child: Container(
+                width: 300,
+                ),
+              ),
+      Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               CheckboxListTile(
@@ -60,7 +71,7 @@ class _New_register_checkState extends State<New_register_check> {
                   });
                 },
               ),
-              ElevatedButton(
+              OutlinedButton(
                 onPressed: isChecked
                     ? () async {
                         var result = await Authentication.emailSignIn(
@@ -81,7 +92,9 @@ class _New_register_checkState extends State<New_register_check> {
                 child: Text('ログインページに戻る'),
               ),
             ]),
+          ],
       ),
+    )
     );
   }
 }
