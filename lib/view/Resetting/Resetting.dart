@@ -61,7 +61,7 @@ class _ResettingState extends State<Resetting> {
               ),
             ),
             SizedBox(height: 70),
-            ElevatedButton(
+            OutlinedButton(
               onPressed: () {
                 Navigator.pushReplacement(context, 
                   MaterialPageRoute(builder: (context) => Resetting_check())
