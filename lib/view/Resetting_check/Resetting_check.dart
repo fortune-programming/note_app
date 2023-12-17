@@ -48,7 +48,7 @@ class _Resetting_checkState extends State<Resetting_check> {
                   });
                 },
               ),
-              ElevatedButton(
+              OutlinedButton(
                 onPressed: isChecked
                     ? () {
                         Navigator.pushReplacement(context,
