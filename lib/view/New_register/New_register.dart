@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'Authentication.dart';
-import 'New_register_check.dart';
+import '../New_register_check/New_register_check.dart';
 
 class New_register extends StatefulWidget {
   @override
@@ -69,94 +69,97 @@ class _New_registerState extends State<New_register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xFFE2D4BA),
-        title: Center(
-          child: Text('新規登録ページ',style: TextStyle(color: Colors.white),),
+        appBar: AppBar(
+          backgroundColor: Color(0xFFE2D4BA),
+          title: Center(
+            child: Text(
+              '新規登録ページ',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
         ),
-      ),
         body: SingleChildScrollView(
           child: Container(
-              alignment: Alignment.center,
-              child: SafeArea(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20.0),
-                child: Container(
-                  width: 300,
-                  child: TextField(
-                    controller: emailController,
-                    decoration: InputDecoration(
-                      hintText: 'メールアドレス',
-                      suffixIcon: Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: Text(
-                          '@m.mie-u.ac.jp',
-                          style: TextStyle(color: Colors.black),
+            alignment: Alignment.center,
+            child: SafeArea(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 20.0),
+                    child: Container(
+                      width: 300,
+                      child: TextField(
+                        controller: emailController,
+                        decoration: InputDecoration(
+                          hintText: 'メールアドレス',
+                          suffixIcon: Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Text(
+                              '@m.mie-u.ac.jp',
+                              style: TextStyle(color: Colors.black),
+                            ),
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20.0),
-                child: Container(
-                  width: 300,
-                  child: TextField(
-                    onChanged: (text) {
-                      setState(() {
-                        userInput = text;
-                        isInputValid = checkInput(userInput);
-                      });
-                    },
-                    controller: passController,
-                    decoration: InputDecoration(hintText: 'パスワード'),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 20.0),
+                    child: Container(
+                      width: 300,
+                      child: TextField(
+                        onChanged: (text) {
+                          setState(() {
+                            userInput = text;
+                            isInputValid = checkInput(userInput);
+                          });
+                        },
+                        controller: passController,
+                        decoration: InputDecoration(hintText: 'パスワード'),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              Container(
-                width: 300,
-                child: TextField(
-                  onChanged: (text) {
-                    setState(() {
-                      userInput1 = text;
-                    });
-                  },
-                  decoration: InputDecoration(hintText: 'パスワード（確認用）'),
-                ),
-              ),
-              SizedBox(height: 70),
-              ElevatedButton(
-                  onPressed: () async {
-                    if (isInputValid) {
-                      if (userInput == userInput1) {
-                        var result = await Authentication.signUp(
-                            email: emailController.text,
-                            pass: passController.text);
-                        if (result is UserCredential) {
-                          result.user!.sendEmailVerification();
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => New_register_check(
-                                      email: emailController.text,
-                                      pass: passController.text)));
+                  Container(
+                    width: 300,
+                    child: TextField(
+                      onChanged: (text) {
+                        setState(() {
+                          userInput1 = text;
+                        });
+                      },
+                      decoration: InputDecoration(hintText: 'パスワード（確認用）'),
+                    ),
+                  ),
+                  SizedBox(height: 70),
+                  ElevatedButton(
+                      onPressed: () async {
+                        if (isInputValid) {
+                          if (userInput == userInput1) {
+                            var result = await Authentication.signUp(
+                                email: emailController.text,
+                                pass: passController.text);
+                            if (result is UserCredential) {
+                              result.user!.sendEmailVerification();
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => New_register_check(
+                                          email: emailController.text,
+                                          pass: passController.text)));
+                            }
+                          } else {
+                            showValidationPopup1();
+                          }
+                        } else {
+                          print("文字列は条件を満たしていません");
+                          showValidationPopup();
                         }
-                      } else {
-                        showValidationPopup1();
-                      }
-                    } else {
-                      print("文字列は条件を満たしていません");
-                      showValidationPopup();
-                    }
-                  },
-                  child: Text('認証メールを送信'))
-            ],
-          ),
+                      },
+                      child: Text('認証メールを送信'))
+                ],
               ),
             ),
+          ),
         ));
   }
 }
