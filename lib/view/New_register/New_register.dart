@@ -131,7 +131,7 @@ class _New_registerState extends State<New_register> {
                     ),
                   ),
                   SizedBox(height: 70),
-                  ElevatedButton(
+                  OutlinedButton(
                       onPressed: () async {
                         if (isInputValid) {
                           if (userInput == userInput1) {
