@@ -1,9 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fortune/view/New_register/New_register.dart';
 import 'package:flutter_fortune/view/Resetting/Resetting.dart';
 import 'package:flutter_fortune/view/mypage/mypage.dart';
 import 'package:flutter_fortune/view/screen.dart';
+import '../../utils/firestore/Authentication.dart';
 
 class LogIn extends StatefulWidget {
   @override
@@ -46,11 +48,15 @@ class _LogInState extends State<LogIn> {
                   TextFormField(
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
-                      labelText: 'ユーザー名',
-                      hintText: 'ユーザー名を入力してください。',
-                      suffixIcon: Padding(padding: const EdgeInsets.all(12.0),
-                      child: Text('@m.mie-u.ac.jp', style: TextStyle(fontSize: 15, color: Colors.black),),)
-                    ),
+                        labelText: 'ユーザー名',
+                        hintText: 'ユーザー名を入力してください。',
+                        suffixIcon: Padding(
+                          padding: const EdgeInsets.all(12.0),
+                          child: Text(
+                            '@m.mie-u.ac.jp',
+                            style: TextStyle(fontSize: 15, color: Colors.black),
+                          ),
+                        )),
                     validator: (value) {
                       if (value!.isEmpty) {
                         return 'ユーザー名を入力してください';
@@ -121,11 +127,15 @@ class _LogInState extends State<LogIn> {
                   _isLoading
                       ? CircularProgressIndicator()
                       : OutlinedButton(
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Screen()));
+                          onPressed: () async {
+                            var result = await Authentication.emailSignIn(
+                                email: _email, pass: _password);
+                            if (result is UserCredential) {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Mypage()));
+                            }
                           },
                           child: Text(
                             'ログイン',
