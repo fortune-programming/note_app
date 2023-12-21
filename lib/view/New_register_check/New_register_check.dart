@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../Login/Login.dart';
-import '../New_register/Authentication.dart';
+import '../../utils/firestore/Authentication.dart';
 
 class New_register_check extends StatefulWidget {
   final String email;

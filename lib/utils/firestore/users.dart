@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-
+import 'package:flutter_fortune/utils/firestore/Authentication.dart';
 import '../../model/account.dart';
-import '../authentication.dart';
 
 class UserFirestore {
   static final _firestoreInstance = FirebaseFirestore.instance;

@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'Authentication.dart';
+import '../../utils/firestore/Authentication.dart';
 import '../New_register_check/New_register_check.dart';
 
 class New_register extends StatefulWidget {
