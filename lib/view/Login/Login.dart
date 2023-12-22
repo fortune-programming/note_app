@@ -21,6 +21,27 @@ class _LogInState extends State<LogIn> {
 
   bool _isLoading = false;
 
+  // ポップアップを表示する関数
+  void showValidationPopup() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("ログインできませんでした"),
+          content: Text("正しいメールアドレス、パスワードを入力してください"),
+          actions: <Widget>[
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text("OK"),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -135,6 +156,9 @@ class _LogInState extends State<LogIn> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => Mypage()));
+                            } else {
+                              print("ログインエラー");
+                              showValidationPopup();
                             }
                           },
                           child: Text(
