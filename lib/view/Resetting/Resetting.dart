@@ -42,7 +42,7 @@ class _ResettingState extends State<Resetting> {
                 //style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 //),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 20.0),
+                  padding: const EdgeInsets.symmetric(vertical: 100.0),
                   child: Container(
                     width: 300,
                     child: TextField(
