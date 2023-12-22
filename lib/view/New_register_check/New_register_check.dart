@@ -63,7 +63,7 @@ class _New_register_checkState extends State<New_register_check> {
                   children: <Widget>[
                     CheckboxListTile(
                       controlAffinity: ListTileControlAffinity.leading,
-                      title: Text('メールのURLをクリックしましたか',
+                      title: Text('送信したメールのURLをクリックしましたか',
                           style: TextStyle(fontSize: 20)),
                       value: isChecked,
                       onChanged: (value) {
