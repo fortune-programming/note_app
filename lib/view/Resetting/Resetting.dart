@@ -14,6 +14,26 @@ class _ResettingState extends State<Resetting> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passController = TextEditingController();
 
+  void showValidationPopup() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("入力エラー"),
+          content: Text("登録されていないメールアドレスです"),
+          actions: <Widget>[
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text("OK"),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,6 +92,7 @@ class _ResettingState extends State<Resetting> {
                                 builder: (context) => Resetting_check()));
                         print("パスワードリセット用のメールを送信しました");
                       } catch (e) {
+                        showValidationPopup();
                         print(e);
                       }
                     },
