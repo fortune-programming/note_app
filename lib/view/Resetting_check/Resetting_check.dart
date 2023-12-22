@@ -40,7 +40,7 @@ class _Resetting_checkState extends State<Resetting_check> {
               CheckboxListTile(
                 controlAffinity: ListTileControlAffinity.leading,
                 title:
-                    Text('メールのURLをクリックしましたか', style: TextStyle(fontSize: 20)),
+                    Text('送信したメールのURLからパスワードを変更しましたか', style: TextStyle(fontSize: 20)),
                 value: isChecked,
                 onChanged: (value) {
                   setState(() {
