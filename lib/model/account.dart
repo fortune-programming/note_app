@@ -5,6 +5,7 @@ class Account {
   String name;
   String imagePath;
   String faculty;
+  String gread;
   String profile;
   Timestamp? createdTime;
   Timestamp? updatedTime;
@@ -14,6 +15,8 @@ class Account {
       this.imagePath = '',
       this.faculty = '',
       this.profile = '',
+      this.gread = '',
       this.createdTime,
-      this.updatedTime});
+      this.updatedTime,
+      });
 }

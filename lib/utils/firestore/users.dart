@@ -13,6 +13,7 @@ class UserFirestore {
         'name': newAccount.name,
         'profile': newAccount.profile,
         'faculty': newAccount.faculty,
+        'gread': newAccount.gread,
         'image_path': newAccount.imagePath,
         'created_time': Timestamp.now(),
         'updated_time': Timestamp.now(),
@@ -33,9 +34,11 @@ class UserFirestore {
           name: data['name'],
           profile: data['profile'],
           faculty: data['faculty'],
+          gread: data['gread'],
           imagePath: data['image_path'],
           createdTime: data['created_time'],
-          updatedTime: data['updated_time']);
+          updatedTime: data['updated_time']
+          );
       Authentication.myAccount = myAccount;
       print('ユーザー取得完了');
       return true;
