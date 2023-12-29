@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../utils/firestore/Authentication.dart';
+import '../../utils/popup.dart';
 import '../New_register_check/New_register_check.dart';
 
 class New_register extends StatefulWidget {
@@ -21,49 +22,6 @@ class _New_registerState extends State<New_register> {
     // 英語大文字、英語小文字、数字をそれぞれ少なくとも1文字以上使用している合計8文字以上の文字列
     final RegExp regex = RegExp(r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$');
     return regex.hasMatch(input);
-  }
-
-  // ポップアップを表示する関数
-  void showValidationPopup() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text("入力が無効です"),
-          content:
-              Text("英語大文字、英語小文字、数字をそれぞれ少なくとも1文字以上使用している合計8文字以上のパスワードが必要です。"),
-          actions: <Widget>[
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text("OK"),
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  // ポップアップを表示する関数
-  void showValidationPopup1() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text("入力が無効です"),
-          content: Text("入力されたパスワードが一致しているか確認してください"),
-          actions: <Widget>[
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text("OK"),
-            ),
-          ],
-        );
-      },
-    );
   }
 
   @override
@@ -146,13 +104,18 @@ class _New_registerState extends State<New_register> {
                                       builder: (context) => New_register_check(
                                           email: emailController.text,
                                           pass: passController.text)));
+                            } else {
+                              showCustomPopup(
+                                  context, "メール送信エラー", "メールアドレスを正しく入力してください");
                             }
                           } else {
-                            showValidationPopup1();
+                            showCustomPopup(context, "入力が無効です",
+                                "入力されたパスワードが一致しているか確認してください");
                           }
                         } else {
                           print("文字列は条件を満たしていません");
-                          showValidationPopup();
+                          showCustomPopup(context, "入力が無効です",
+                              "英語大文字、英語小文字、数字をそれぞれ少なくとも1文字以上使用している合計8文字以上のパスワードが必要です。");
                         }
                       },
                       child: Text('認証メールを送信'))

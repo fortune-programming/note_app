@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_fortune/utils/popup.dart';
 import '../Login/Login.dart';
 import '../../utils/firestore/Authentication.dart';
 
@@ -13,26 +14,6 @@ class New_register_check extends StatefulWidget {
 
 class _New_register_checkState extends State<New_register_check> {
   bool isChecked = false;
-
-  void showValidationPopup() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text("メール認証が完了していません"),
-          content: Text("入力したメールアドレスに届いたメールのURLをクリックしてください"),
-          actions: <Widget>[
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text("OK"),
-            ),
-          ],
-        );
-      },
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +66,8 @@ class _New_register_checkState extends State<New_register_check> {
                                           builder: (context) => LogIn()));
                                 } else {
                                   print("メール認証が完了していません");
-                                  showValidationPopup();
+                                  showCustomPopup(context, "メール認証が完了していません",
+                                      "入力したメールアドレスに届いたメールのURLをクリックしてください");
                                 }
                               }
                             }
