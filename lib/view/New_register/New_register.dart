@@ -93,16 +93,17 @@ class _New_registerState extends State<New_register> {
                       onPressed: () async {
                         if (isInputValid) {
                           if (userInput == userInput1) {
+                            String emailPrefix = emailController.text;
+                            String fullEmail = '$emailPrefix@m.mie-u.ac.jp';
                             var result = await Authentication.signUp(
-                                email: emailController.text,
-                                pass: passController.text);
+                                email: fullEmail, pass: passController.text);
                             if (result is UserCredential) {
                               result.user!.sendEmailVerification();
                               Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => New_register_check(
-                                          email: emailController.text,
+                                          email: fullEmail,
                                           pass: passController.text)));
                             } else {
                               showCustomPopup(
