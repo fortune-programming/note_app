@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_fortune/utils/popup.dart';
 import 'package:flutter_fortune/view/New_register/New_register.dart';
 import 'package:flutter_fortune/view/Resetting/Resetting.dart';
 import 'package:flutter_fortune/view/mypage/mypage.dart';
@@ -20,27 +21,6 @@ class _LogInState extends State<LogIn> {
   String _errorMessage = '';
 
   bool _isLoading = false;
-
-  // ポップアップを表示する関数
-  void showValidationPopup() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text("ログインできませんでした"),
-          content: Text("正しいメールアドレス、パスワードを入力してください"),
-          actions: <Widget>[
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text("OK"),
-            ),
-          ],
-        );
-      },
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -149,8 +129,9 @@ class _LogInState extends State<LogIn> {
                       ? CircularProgressIndicator()
                       : OutlinedButton(
                           onPressed: () async {
+                            String fullEmail = '$_email@m.mie-u.ac.jp';
                             var result = await Authentication.emailSignIn(
-                                email: _email, pass: _password);
+                                email: fullEmail, pass: _password);
                             if (result is UserCredential) {
                               Navigator.push(
                                   context,
@@ -158,7 +139,8 @@ class _LogInState extends State<LogIn> {
                                       builder: (context) => Mypage()));
                             } else {
                               print("ログインエラー");
-                              showValidationPopup();
+                              showCustomPopup(context, "ログインできませんでした",
+                                  "正しいメールアドレス、パスワードを入力してください");
                             }
                           },
                           child: Text(
