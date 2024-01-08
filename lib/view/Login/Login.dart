@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_fortune/utils/firestore/users.dart';
 import 'package:flutter_fortune/utils/popup.dart';
 import 'package:flutter_fortune/view/New_register/New_register.dart';
 import 'package:flutter_fortune/view/Resetting/Resetting.dart';
@@ -130,13 +131,19 @@ class _LogInState extends State<LogIn> {
                       : OutlinedButton(
                           onPressed: () async {
                             String fullEmail = '$_email@m.mie-u.ac.jp';
+                            //authenticationログイン
                             var result = await Authentication.emailSignIn(
                                 email: fullEmail, pass: _password);
                             if (result is UserCredential) {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Mypage()));
+                              //firestoreの情報へアクセス
+                              var _result =
+                                  await UserFirestore.getUser(result.user!.uid);
+                              if (_result == true) {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Mypage()));
+                              }
                             } else {
                               print("ログインエラー");
                               showCustomPopup(context, "ログインできませんでした",

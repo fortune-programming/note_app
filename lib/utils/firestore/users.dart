@@ -10,11 +10,12 @@ class UserFirestore {
   static Future<dynamic> setUser(Account newAccount) async {
     try {
       await users.doc(newAccount.id).set({
+        'number': newAccount.number,
         'name': newAccount.name,
-        'profile': newAccount.profile,
         'faculty': newAccount.faculty,
         'gread': newAccount.gread,
-        'image_path': newAccount.imagePath,
+        //'image_path': newAccount.imagePath,
+        //'profile': newAccount.profile,
         'created_time': Timestamp.now(),
         'updated_time': Timestamp.now(),
       });
@@ -31,19 +32,38 @@ class UserFirestore {
           documentSnapshot.data() as Map<String, dynamic>;
       Account myAccount = Account(
           id: uid,
+          number: data['number'],
           name: data['name'],
-          profile: data['profile'],
           faculty: data['faculty'],
           gread: data['gread'],
-          imagePath: data['image_path'],
+          //imagePath: data['image_path'],
+          //profile: data['profile'],
           createdTime: data['created_time'],
-          updatedTime: data['updated_time']
-          );
+          updatedTime: data['updated_time']);
       Authentication.myAccount = myAccount;
       print('ユーザー取得完了');
       return true;
     } on FirebaseException catch (e) {
       print('ユーザー取得エラー: $e');
+      return false;
+    }
+  }
+
+  static Future<dynamic> updateUser(Account updateAccount) async {
+    try {
+      await users.doc(updateAccount.id).update({
+        'number': updateAccount.number,
+        'name': updateAccount.name,
+        'faculty': updateAccount.faculty,
+        'gread': updateAccount.gread,
+        //'image_path': updateAccount.imagePath,
+        //'profile': updateAccount.profile,
+        'updated_time': Timestamp.now()
+      });
+      print('ユーザー情報の更新完了');
+      return true;
+    } on FirebaseException catch (e) {
+      print('ユーザー情報の更新エラー: $e');
       return false;
     }
   }

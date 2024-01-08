@@ -37,34 +37,48 @@ class _MypageState extends State<Mypage> {
               child: Column(
                 children: [
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children:[ 
-                      Row(
-                     children:[
-                      SizedBox(width: 10),
-                      if(myAccount.name == null && myAccount.id == null && myAccount.faculty == null && myAccount.gread == null)
-                        child: Text('アカウントを設定してください')
-                      else(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
                           children: [
-                            Text(myAccount.name, style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                            Text('@${myAccount.id}'),
-                            Text(myAccount.faculty),
-                            Text(myAccount.gread),
+                            SizedBox(width: 10),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                /*Text((myAccount.name == null) ? "未設定" : myAccount.name, style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
+                              Text((myAccount.id == null) ? "未設定" : "@${myAccount.id}", style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
+                              Text((myAccount.faculty == null) ? "未設定" : myAccount.faculty, style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
+                              Text((myAccount.gread == null) ? "未設定" : myAccount.gread, style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),*/
+                                Text(myAccount.name,
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold)),
+                                Text(myAccount.number,
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold)),
+                                Text(myAccount.faculty,
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold)),
+                                Text(myAccount.gread,
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold)),
+                              ],
+                            ),
                           ],
                         ),
-                      ),
-                     ],
-                    ),
-                     OutlinedButton(onPressed: (){
-                        Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) => Mypage_edit()));
-                      }, 
-                      child: Text('編集')
-                      )
-                  ]
-                  )
+                        OutlinedButton(
+                            onPressed: () {
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Mypage_edit()));
+                            },
+                            child: Text('編集'))
+                      ])
                 ],
               ),
             )

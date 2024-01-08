@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_fortune/utils/firestore/users.dart';
 import 'package:flutter_fortune/utils/popup.dart';
+import '../../model/account.dart';
 import '../Login/Login.dart';
 import '../../utils/firestore/Authentication.dart';
 
@@ -60,10 +62,22 @@ class _New_register_checkState extends State<New_register_check> {
                                   email: widget.email, pass: widget.pass);
                               if (result is UserCredential) {
                                 if (result.user!.emailVerified == true) {
-                                  Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => LogIn()));
+                                  String number = widget.email
+                                      .replaceAll(RegExp(r'@.*'), '');
+                                  Account newAccount = Account(
+                                      id: result.user!.uid,
+                                      number: number,
+                                      name: '未設定',
+                                      faculty: '未設定',
+                                      gread: '未設定');
+                                  var _result =
+                                      await UserFirestore.setUser(newAccount);
+                                  if (_result == true) {
+                                    Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => LogIn()));
+                                  }
                                 } else {
                                   print("メール認証が完了していません");
                                   showCustomPopup(context, "メール認証が完了していません",
