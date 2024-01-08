@@ -42,13 +42,18 @@ class _MypageState extends State<Mypage> {
                       Row(
                      children:[
                       SizedBox(width: 10),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(myAccount.name, style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                          Text('@${myAccount.id}'),
-                          Text(myAccount.faculty),
-                        ],
+                      if(myAccount.name == null && myAccount.id == null && myAccount.faculty == null && myAccount.gread == null)
+                        child: Text('アカウントを設定してください')
+                      else(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(myAccount.name, style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                            Text('@${myAccount.id}'),
+                            Text(myAccount.faculty),
+                            Text(myAccount.gread),
+                          ],
+                        ),
                       ),
                      ],
                     ),
