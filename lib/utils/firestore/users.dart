@@ -49,6 +49,37 @@ class UserFirestore {
     }
   }
 
+  static Future<dynamic> getUserByNumber(String number) async {
+    try {
+      QuerySnapshot querySnapshot =
+          await users.where('number', isEqualTo: number).get();
+      if (querySnapshot.docs.isNotEmpty) {
+        DocumentSnapshot documentSnapshot = querySnapshot.docs.first;
+        Map<String, dynamic> data =
+            documentSnapshot.data() as Map<String, dynamic>;
+        Account myAccount = Account(
+            id: documentSnapshot.id,
+            number: data['number'],
+            name: data['name'],
+            faculty: data['faculty'],
+            gread: data['gread'],
+            //imagePath: data['image_path'],
+            //profile: data['profile'],
+            createdTime: data['created_time'],
+            updatedTime: data['updated_time']);
+        Authentication.myAccount = myAccount;
+        print('ユーザー取得完了');
+        return true;
+      } else {
+        print('ユーザーが見つかりません');
+        return false;
+      }
+    } on FirebaseException catch (e) {
+      print('ユーザー取得エラー: $e');
+      return false;
+    }
+  }
+
   static Future<dynamic> updateUser(Account updateAccount) async {
     try {
       await users.doc(updateAccount.id).update({
