@@ -71,11 +71,16 @@ class _MypageState extends State<Mypage> {
                           ],
                         ),
                         OutlinedButton(
-                            onPressed: () {
-                              Navigator.pushReplacement(
+                            onPressed: () async {
+                              var result = await Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => Mypage_edit()));
+                              if (result == true) {
+                                setState(() {
+                                  myAccount = Authentication.myAccount!;
+                                });
+                              }
                             },
                             child: Text('編集'))
                       ])
