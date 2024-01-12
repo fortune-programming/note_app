@@ -50,7 +50,7 @@ class _MypageState extends State<Mypage> {
                                         ? "アカウント名：未設定"
                                         : myAccount.name!,
                                     style: TextStyle(
-                                        fontSize: 30,
+                                        fontSize: 25,
                                         fontWeight: FontWeight.bold)),
                                 Text('@${myAccount.number}',
                                     style: TextStyle(
