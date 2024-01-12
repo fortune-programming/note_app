@@ -142,7 +142,7 @@ class _LogInState extends State<LogIn> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => Mypage()));
+                                        builder: (context) => Screen()));
                               }
                             } else {
                               print("ログインエラー");

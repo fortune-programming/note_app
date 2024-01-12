@@ -45,35 +45,30 @@ class _MypageState extends State<Mypage> {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                /*Text((myAccount.name == null) ? "未設定" : myAccount.name, style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
-                              Text((myAccount.id == null) ? "未設定" : "@${myAccount.id}", style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
-                              Text((myAccount.faculty == null) ? "未設定" : myAccount.faculty, style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
-                              Text((myAccount.gread == null) ? "未設定" : myAccount.gread, style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),*/
                                 Text(
                                     (myAccount.name == null)
-                                        ? "未設定"
+                                        ? "アカウント名：未設定"
                                         : myAccount.name!,
                                     style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: 25,
                                         fontWeight: FontWeight.bold)),
-                                Text(myAccount.number,
+                                Text('@${myAccount.number}',
                                     style: TextStyle(
                                         color: Colors.black,
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold)),
+                                        fontSize: 15)),
                                 Text(
                                     (myAccount.faculty == null)
-                                        ? "未設定"
-                                        : myAccount.faculty!,
+                                        ? "学部：未設定"
+                                        : '学部：${myAccount.faculty!}',
                                     style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: 15,
                                         fontWeight: FontWeight.bold)),
                                 Text(
                                     (myAccount.gread == null)
-                                        ? "未設定"
-                                        : myAccount.gread!,
+                                        ? "学年：未設定"
+                                        : '学年：${myAccount.gread!}',
                                     style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: 15,
                                         fontWeight: FontWeight.bold)),
                               ],
                             ),
