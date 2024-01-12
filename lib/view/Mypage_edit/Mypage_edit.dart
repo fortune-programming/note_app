@@ -143,23 +143,23 @@ class _Mypage_editState extends State<Mypage_edit> {
                     child: Text('未設定'),
                   ),
                   DropdownMenuItem(
-                    value: 'Faculty of humanities',
+                    value: '人文学部',
                     child: Text('人文学部'),
                   ),
                   DropdownMenuItem(
-                    value: 'Faculty of education',
+                    value: '教育学部',
                     child: Text('教育学部'),
                   ),
                   DropdownMenuItem(
-                    value: 'Faculty of bioresources',
+                    value: '生物資源学部',
                     child: Text('生物資源学部'),
                   ),
                   DropdownMenuItem(
-                    value: 'Faculty of engineering',
+                    value: '工学部',
                     child: Text('工学部'),
                   ),
                   DropdownMenuItem(
-                    value: 'Faculty of medical',
+                    value: '医学部',
                     child: Text('医学部'),
                   ),
                 ],
@@ -190,43 +190,43 @@ class _Mypage_editState extends State<Mypage_edit> {
                     child: Text('未設定'),
                   ),
                   DropdownMenuItem(
-                    value: 'Gread 1',
+                    value: '1年',
                     child: Text('1年'),
                   ),
                   DropdownMenuItem(
-                    value: 'Gread 2',
+                    value: '2年',
                     child: Text('2年'),
                   ),
                   DropdownMenuItem(
-                    value: 'Gread 3',
+                    value: '3年',
                     child: Text('3年'),
                   ),
                   DropdownMenuItem(
-                    value: 'Gread 4',
+                    value: '4年',
                     child: Text('4年'),
                   ),
                   DropdownMenuItem(
-                    value: 'Master 1',
+                    value: '修士1年',
                     child: Text('修士1年'),
                   ),
                   DropdownMenuItem(
-                    value: 'Master 2',
+                    value: '修士2年',
                     child: Text('修士2年'),
                   ),
                   DropdownMenuItem(
-                    value: 'Doctor 1',
+                    value: '博士1年',
                     child: Text('博士1年'),
                   ),
                   DropdownMenuItem(
-                    value: 'Doctor 2',
+                    value: '博士2年',
                     child: Text('博士2年'),
                   ),
                   DropdownMenuItem(
-                    value: 'Doctor 3',
+                    value: '博士3年',
                     child: Text('博士3年'),
                   ),
                   DropdownMenuItem(
-                    value: 'Doctor 4',
+                    value: '博士4年',
                     child: Text('博士4年'),
                   ),
                 ],
