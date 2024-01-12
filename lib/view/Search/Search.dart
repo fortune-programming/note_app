@@ -32,7 +32,7 @@ class _SearchState extends State<Search> {
         automaticallyImplyLeading: false,
         backgroundColor: Color(0xFFE2D4BA),
         title: SizedBox(
-          height: 42,
+          height: 43,
           child: Container(
            decoration: BoxDecoration(
               color: Colors.white,
