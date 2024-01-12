@@ -15,7 +15,7 @@ class Authentication {
       print('Auth登録完了');
       return newAccount;
     } on FirebaseAuthException catch (e) {
-      print('Auth 登録エラー$e');
+      print('Auth登録エラー$e');
       return false;
     }
   }

@@ -64,7 +64,7 @@ class UserFirestore {
             faculty: data['faculty'],
             gread: data['gread'],
             //imagePath: data['image_path'],
-            //profile: data['profile'],
+            //profile:  data['profile'],
             createdTime: data['created_time'],
             updatedTime: data['updated_time']);
         Authentication.foundAccount = foundAccount;
