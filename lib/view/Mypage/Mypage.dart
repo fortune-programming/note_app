@@ -47,7 +47,7 @@ class _MypageState extends State<Mypage> {
                               children: [
                                 Text(
                                     (myAccount.name == null)
-                                        ? "アカウント名：未設定"
+                                        ? "アカウント名：未設定1"
                                         : myAccount.name!,
                                     style: TextStyle(
                                         fontSize: 25,
