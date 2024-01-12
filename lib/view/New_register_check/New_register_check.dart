@@ -67,9 +67,9 @@ class _New_register_checkState extends State<New_register_check> {
                                   Account newAccount = Account(
                                       id: result.user!.uid,
                                       number: number,
-                                      name: '未設定',
-                                      faculty: '未設定',
-                                      gread: '未設定');
+                                      name: null,
+                                      faculty: null,
+                                      gread: null);
                                   var _result =
                                       await UserFirestore.setUser(newAccount);
                                   if (_result == true) {

@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_fortune/model/account.dart';
 import 'package:flutter_fortune/utils/firestore/Authentication.dart';
 import 'package:flutter_fortune/utils/firestore/users.dart';
+import 'package:flutter_fortune/utils/popup.dart';
 import 'package:flutter_fortune/view/Mypage/Mypage.dart';
 import 'package:flutter_fortune/view/screen.dart';
 import 'package:image_picker/image_picker.dart';
@@ -137,6 +138,10 @@ class _Mypage_editState extends State<Mypage_edit> {
                 ),
                 value: _selectedFaculty,
                 items: const [
+                  DropdownMenuItem<String>(
+                    value: null,
+                    child: Text('未設定'),
+                  ),
                   DropdownMenuItem(
                     value: 'Faculty of humanities',
                     child: Text('人文学部'),
@@ -180,6 +185,10 @@ class _Mypage_editState extends State<Mypage_edit> {
                 ),
                 value: _selectedGread,
                 items: const [
+                  DropdownMenuItem(
+                    value: null,
+                    child: Text('未設定'),
+                  ),
                   DropdownMenuItem(
                     value: 'Gread 1',
                     child: Text('1年'),
@@ -249,6 +258,9 @@ class _Mypage_editState extends State<Mypage_edit> {
                       if (result == true) {
                         Navigator.pop(context, true);
                       }
+                    } else {
+                      showCustomPopup(
+                          context, "変更を完了できません", "名前、学部、学年を選択してください");
                     }
                   },
                   child: Text('変更を保存'),

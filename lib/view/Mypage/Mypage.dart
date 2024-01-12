@@ -49,7 +49,10 @@ class _MypageState extends State<Mypage> {
                               Text((myAccount.id == null) ? "未設定" : "@${myAccount.id}", style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
                               Text((myAccount.faculty == null) ? "未設定" : myAccount.faculty, style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
                               Text((myAccount.gread == null) ? "未設定" : myAccount.gread, style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),*/
-                                Text(myAccount.name!,
+                                Text(
+                                    (myAccount.name == null)
+                                        ? "未設定"
+                                        : myAccount.name!,
                                     style: TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold)),
@@ -58,11 +61,17 @@ class _MypageState extends State<Mypage> {
                                         color: Colors.black,
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold)),
-                                Text(myAccount.faculty,
+                                Text(
+                                    (myAccount.faculty == null)
+                                        ? "未設定"
+                                        : myAccount.faculty!,
                                     style: TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold)),
-                                Text(myAccount.gread,
+                                Text(
+                                    (myAccount.gread == null)
+                                        ? "未設定"
+                                        : myAccount.gread!,
                                     style: TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold)),

@@ -4,8 +4,8 @@ class Account {
   String id; //uid
   String number;
   String? name;
-  String faculty;
-  String gread;
+  String? faculty;
+  String? gread;
   //String imagePath;
   //String profile;
   Timestamp? createdTime;
