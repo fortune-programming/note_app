@@ -49,7 +49,7 @@ class _MypageState extends State<Mypage> {
                               Text((myAccount.id == null) ? "未設定" : "@${myAccount.id}", style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
                               Text((myAccount.faculty == null) ? "未設定" : myAccount.faculty, style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
                               Text((myAccount.gread == null) ? "未設定" : myAccount.gread, style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),*/
-                                Text(myAccount.name,
+                                Text(myAccount.name!,
                                     style: TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold)),

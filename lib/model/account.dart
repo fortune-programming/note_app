@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class Account {
   String id; //uid
   String number;
-  String name;
+  String? name;
   String faculty;
   String gread;
   //String imagePath;

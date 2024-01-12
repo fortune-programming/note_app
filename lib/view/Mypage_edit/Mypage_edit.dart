@@ -18,12 +18,20 @@ class Mypage_edit extends StatefulWidget {
 
 class _Mypage_editState extends State<Mypage_edit> {
   Account myAccount = Authentication.myAccount!;
-  String _name = 'User name';
+  String? _name = Authentication.myAccount?.name;
   String _intro = 'Introduction text';
   String _belonging = 'Belonging text';
-  String? _selectedFaculty = null;
-  String? _serlectedPicture = null;
-  String? _selectedGread = null;
+  String? _selectedFaculty = Authentication.myAccount?.faculty;
+  String? _serlectedPicture = Authentication.myAccount?.faculty;
+  String? _selectedGread = Authentication.myAccount?.gread;
+
+  TextEditingController _nameController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _nameController.text = Authentication.myAccount?.name ?? '';
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +68,7 @@ class _Mypage_editState extends State<Mypage_edit> {
                   hintText: '名前',
                   border: OutlineInputBorder(),
                 ),
+                controller: _nameController,
                 onChanged: (value) {
                   setState(() {
                     _name = value;
