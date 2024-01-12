@@ -30,7 +30,7 @@ class UserFirestore {
       DocumentSnapshot documentSnapshot = await users.doc(uid).get();
       Map<String, dynamic> data =
           documentSnapshot.data() as Map<String, dynamic>;
-      Account myAccount = Account(
+      Account foundAccount = Account(
           id: uid,
           number: data['number'],
           name: data['name'],
@@ -40,8 +40,8 @@ class UserFirestore {
           //profile: data['profile'],
           createdTime: data['created_time'],
           updatedTime: data['updated_time']);
-      Authentication.myAccount = myAccount;
-      print('ユーザー取得完了');
+      Authentication.foundAccount = foundAccount;
+      print('検索ユーザー取得完了');
       return true;
     } on FirebaseException catch (e) {
       print('ユーザー取得エラー: $e');
@@ -57,7 +57,7 @@ class UserFirestore {
         DocumentSnapshot documentSnapshot = querySnapshot.docs.first;
         Map<String, dynamic> data =
             documentSnapshot.data() as Map<String, dynamic>;
-        Account myAccount = Account(
+        Account foundAccount = Account(
             id: documentSnapshot.id,
             number: data['number'],
             name: data['name'],
@@ -67,8 +67,8 @@ class UserFirestore {
             //profile: data['profile'],
             createdTime: data['created_time'],
             updatedTime: data['updated_time']);
-        Authentication.myAccount = myAccount;
-        print('ユーザー取得完了');
+        Authentication.foundAccount = foundAccount;
+        print('検索ユーザー取得完了');
         return true;
       } else {
         print('ユーザーが見つかりません');
