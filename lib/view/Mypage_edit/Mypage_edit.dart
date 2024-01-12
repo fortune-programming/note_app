@@ -185,7 +185,7 @@ class _Mypage_editState extends State<Mypage_edit> {
                 ),
                 value: _selectedGread,
                 items: const [
-                  DropdownMenuItem(
+                  DropdownMenuItem<String>(
                     value: null,
                     child: Text('未設定'),
                   ),
@@ -244,6 +244,7 @@ class _Mypage_editState extends State<Mypage_edit> {
                 child: OutlinedButton(
                   onPressed: () async {
                     if (_name != null &&
+                        _name!.length <= 20 &&
                         _selectedFaculty != null &&
                         _selectedGread != null) {
                       Account updateAccount = Account(
@@ -260,7 +261,7 @@ class _Mypage_editState extends State<Mypage_edit> {
                       }
                     } else {
                       showCustomPopup(
-                          context, "変更を完了できません", "名前、学部、学年を選択してください");
+                          context, "変更を完了できません", "名前(20文字以内)、学部、学年を選択してください");
                     }
                   },
                   child: Text('変更を保存'),
