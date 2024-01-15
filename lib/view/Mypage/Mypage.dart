@@ -13,7 +13,7 @@ class Mypage extends StatefulWidget {
 }
 
 class _MypageState extends State<Mypage> {
-  Account myAccount = Authentication.myAccount!;
+  Account? myAccount = Authentication.myAccount;
 
   @override
   Widget build(BuildContext context) {
@@ -46,27 +46,26 @@ class _MypageState extends State<Mypage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                    (myAccount.name == null)
+                                    (myAccount?.name == null)
                                         ? "アカウント名：未設定"
-                                        : myAccount.name!,
+                                        : '${myAccount?.name}',
                                     style: TextStyle(
                                         fontSize: 25,
                                         fontWeight: FontWeight.bold)),
-                                Text('@${myAccount.number}',
+                                Text('@${myAccount?.number}',
                                     style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 15)),
+                                        color: Colors.black, fontSize: 15)),
                                 Text(
-                                    (myAccount.faculty == null)
+                                    (myAccount?.faculty == null)
                                         ? "学部：未設定"
-                                        : '学部：${myAccount.faculty!}',
+                                        : '学部：${myAccount?.faculty!}',
                                     style: TextStyle(
                                         fontSize: 15,
                                         fontWeight: FontWeight.bold)),
                                 Text(
-                                    (myAccount.gread == null)
+                                    (myAccount?.gread == null)
                                         ? "学年：未設定"
-                                        : '学年：${myAccount.gread!}',
+                                        : '学年：${myAccount?.gread!}',
                                     style: TextStyle(
                                         fontSize: 15,
                                         fontWeight: FontWeight.bold)),

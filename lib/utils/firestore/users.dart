@@ -30,7 +30,7 @@ class UserFirestore {
       DocumentSnapshot documentSnapshot = await users.doc(uid).get();
       Map<String, dynamic> data =
           documentSnapshot.data() as Map<String, dynamic>;
-      Account foundAccount = Account(
+      Account myAccount = Account(
           id: uid,
           number: data['number'],
           name: data['name'],
@@ -40,7 +40,7 @@ class UserFirestore {
           //profile: data['profile'],
           createdTime: data['created_time'],
           updatedTime: data['updated_time']);
-      Authentication.foundAccount = foundAccount;
+      Authentication.myAccount = myAccount;
       print('検索ユーザー取得完了');
       return true;
     } on FirebaseException catch (e) {
