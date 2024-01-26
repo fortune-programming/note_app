@@ -14,11 +14,11 @@ class Search extends StatefulWidget implements PreferredSizeWidget {
 class _SearchState extends State<Search> {
   TextEditingController searchController = TextEditingController();
 
-  final _controller = TextEditingController();
+ // final _controller = TextEditingController();
 
   void _submission(text) {
     setState(() {
-      _controller.clear();
+  //    _controller.clear();
       if (kDebugMode) {
         print(text);
       }
@@ -43,7 +43,7 @@ class _SearchState extends State<Search> {
                 width:440,
                 margin: EdgeInsets.symmetric(vertical: 10.0),
                 child: TextField(
-                  controller: _controller,
+                 // controller: _controller,
                   decoration: InputDecoration(
                     hintText: '検索',
                     prefixIcon: Icon(Icons.search),
@@ -53,7 +53,7 @@ class _SearchState extends State<Search> {
                     focusedBorder: InputBorder.none,
                     isDense: true,
                   ),
-                  onSubmitted: (text) => _submission(text),
+                 // onSubmitted: (text) => _submission(text),
                 ),
               ),
             ),
