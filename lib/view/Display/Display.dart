@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_fortune/model/account.dart';
 import 'package:flutter_fortune/utils/firestore/Authentication.dart';
-import 'package:flutter_fortune/view/Mypage_edit/Mypage_edit.dart';
 
-class Mypage extends StatefulWidget {
-  const Mypage({super.key});
+class Display extends StatefulWidget {
+  const Display({super.key});
 
   @override
-  State<Mypage> createState() => _MypageState();
+  State<Display> createState() => _DisplayState();
 }
 
-class _MypageState extends State<Mypage> {
+class _DisplayState extends State<Display> {
   Account? foundAccount = Authentication.foundAccount;
 
   @override
