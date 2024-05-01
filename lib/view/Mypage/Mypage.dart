@@ -118,7 +118,7 @@ class _MypageState extends State<Mypage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // 新しいリストを追加
+          // 新しいリストを追加する
           addList('New List');
         },
         child: Icon(Icons.add),
