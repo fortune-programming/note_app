@@ -14,13 +14,13 @@ class Mypage extends StatefulWidget {
 
 class _MypageState extends State<Mypage> {
   Account? myAccount = Authentication.myAccount;
-  List<String> lists = [];
+  /*List<String> lists = [];
 
   void addList(String newList) {
     setState(() {
       lists.add(newList);
     });
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +93,7 @@ class _MypageState extends State<Mypage> {
                               }
                             },
                             child: Text('編集')),
-                        ListView.builder(
+                        /*ListView.builder(
                           itemCount: lists.length,
                           itemBuilder: (context, index) {
                             return ListTile(
@@ -108,7 +108,7 @@ class _MypageState extends State<Mypage> {
                               },
                             );
                           },
-                        ),
+                        ),*/
                       ])
                 ],
               ),
@@ -116,13 +116,13 @@ class _MypageState extends State<Mypage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+      /*floatingActionButton: FloatingActionButton(
         onPressed: () {
           // 新しいリストを追加する
           addList('New List');
         },
         child: Icon(Icons.add),
-      ),
+      ),*/
     );
   }
 }
