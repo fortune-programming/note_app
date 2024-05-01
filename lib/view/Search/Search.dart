@@ -57,7 +57,7 @@ class _SearchState extends State<Search> {
 
   void _submission(text) {
     setState(() {
-      _controller.clear();
+  //    _controller.clear();
       if (kDebugMode) {
         print(text);
       }
