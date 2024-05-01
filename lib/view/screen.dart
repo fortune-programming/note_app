@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fortune/main.dart';
 import 'package:flutter_fortune/view/Mypage_edit/Mypage_edit.dart';
+import 'package:flutter_fortune/view/Search/Search.dart';
 import 'package:flutter_fortune/view/note/post_note_meta.dart';
 
 import 'mypage/mypage.dart';
@@ -18,7 +19,7 @@ class Screen extends StatefulWidget {
 
 class _ScreenState extends State<Screen> {
   int selectedIndex = 0;
-  List<Widget> pageList = [Mypage(), Timeline()];
+  List<Widget> pageList = [Mypage(), Search()];
 
   @override
   Widget build(BuildContext context) {
@@ -29,13 +30,15 @@ class _ScreenState extends State<Screen> {
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.perm_identity_outlined,
-                color: Color.fromRGBO(226, 212, 186, 100),
+                size: 30,
+                color: Color(0xFFE2D4BA),
               ),
               label: ''),
           BottomNavigationBarItem(
               icon: Icon(
-                Icons.home_outlined,
-                color: Color.fromRGBO(226, 212, 186, 100),
+                Icons.search_outlined,
+                size: 30,
+                color: Color(0xFFE2D4BA),
               ),
               label: '')
         ],
