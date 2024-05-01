@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_fortune/view/screen.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../model/note.dart';
@@ -43,7 +44,12 @@ class _postNoteImgPageState extends State<postNoteImgPage> {
                     },
                   ),
           ),
-          ElevatedButton(onPressed: () {}, child: Text('アップロードする'))
+          ElevatedButton(onPressed: () {
+             Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => Screen()),
+             );
+          }, child: Text('アップロードする'))
         ],
       ),
       floatingActionButton: FloatingActionButton(

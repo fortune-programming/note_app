@@ -50,7 +50,12 @@ class _ScreenState extends State<Screen> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+           Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => postNotePage()),
+           );
+        },
         child: Icon(Icons.chat_bubble_outline),
         backgroundColor: Color.fromRGBO(226, 212, 186, 100),
       ),
