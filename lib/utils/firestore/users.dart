@@ -6,6 +6,8 @@ class UserFirestore {
   static final _firestoreInstance = FirebaseFirestore.instance;
   static final CollectionReference users =
       _firestoreInstance.collection('users');
+  final CollectionReference _usersCollection =
+      FirebaseFirestore.instance.collection('users');
 
   static Future<dynamic> setUser(Account newAccount) async {
     try {
@@ -96,6 +98,35 @@ class UserFirestore {
     } on FirebaseException catch (e) {
       print('ユーザー情報の更新エラー: $e');
       return false;
+    }
+  }
+
+  UserSearchService get searchService => UserSearchService(_usersCollection);
+}
+
+class UserSearchService {
+  final CollectionReference _usersCollection;
+
+  UserSearchService(this._usersCollection);
+
+  Future<List<Map<String, dynamic>>> searchUsersByNumber(
+      String searchQuery) async {
+    try {
+      // Firestoreの検索クエリ
+      QuerySnapshot querySnapshot = await _usersCollection
+          .where('number', isGreaterThanOrEqualTo: searchQuery)
+          .limit(5)
+          .get();
+
+      // 検索結果をリストに変換
+      List<Map<String, dynamic>> searchResults = querySnapshot.docs
+          .map((doc) => doc.data() as Map<String, dynamic>)
+          .toList();
+
+      return searchResults;
+    } catch (e) {
+      print('Error searching users: $e');
+      return [];
     }
   }
 }
